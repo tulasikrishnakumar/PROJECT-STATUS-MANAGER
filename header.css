@@ -46,7 +46,7 @@
 .middle-section{
     margin-left: 40px;
     margin-right: 40px;
-    flex: 1;
+    width: 60%;
     align-items: center;
 }
 .search-bar{
