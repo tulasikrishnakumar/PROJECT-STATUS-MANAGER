@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heads / Tails</title>
+    <style>
+        body{
+            background-color: white;
+        }
+        p{
+            color: rgb(62, 3, 189);
+        }
+        .toss{
+            color: rgb(0, 72, 255);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button{
+            margin: 10px;
+            width: 100px;
+            font-weight: bold;
+            background-color: rgb(198, 226, 253);
+            border: 2px solid rgb(65, 160, 255);
+            color: rgb(57, 100, 255);
+            border-radius: 5px;
+            padding: 5px;
+        }
+        button:hover{
+            background-color: white;
+            color: rgb(57, 100, 255);
+            box-shadow: 0 0 5px rgb(0, 0, 0 ,.7);
+            border: 1px solid rgb(57, 100, 255);
+            transition: all .3s;
+        }
+        button:active{
+            color: aliceblue;
+            background-color: rgb(57, 100, 255);
+            box-shadow: 0 0 10px rgb(57, 100, 255, .7);
+        }
+        .js-result2{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;" class="toss">---T0$$---</h1>
+    <p style="text-align: center;">Select your option</p>
+    <div style="text-align: center;">
+        <button onclick="
+            playerChoise='HEAD';
+            computerChoise();
+            ">HEAD</button>
+        <button onclick="
+            playerChoise='TAIL';
+            computerChoise();
+            ">TAIL</button>
+        <p class="js-result1"></p>
+        <p class="js-result2"></p>
+    </div>
+    <script>
+        let playerChoise='';
+        
+        let cChoise='';
+        let result1='';
+        let result2='';
+        function computerChoise(){
+            let CC=Math.random();
+            if(CC > 0 && CC < 1/2){
+                cChoise='HEAD';
+            }else if(CC >= 1/5 && CC < 1){
+                cChoise='TAIL';
+            }
+            console.log(CC);
+            compare();
+        }
+        function compare(){
+            if(playerChoise === cChoise){
+                result1=`The toss is ${cChoise}`;
+                result2='"YOU WIN"';
+            }else{
+                result1=`The toss is ${cChoise}`;
+                result2='"YOU LOOSE"';
+            }
+            document.querySelector('.js-result1').innerHTML=result1;
+            document.querySelector('.js-result2').innerHTML=result2;
+        }
+    </script>
+</body>
+</html>
